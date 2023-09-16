@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .user {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        p.success {
+            color: green;
+        }
+
+        p.error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="vit.png" class="user">
+        <h1>Login Here</h1>
+        <form name="myform" action="login.php" method="POST">
+            <p>Username</p>
+            <input type="text" name="uname" placeholder="Enter Username" required="">
+            <p>Password</p>
+            <input type="password" name="upswd" placeholder="Enter Password" required="">
+            <input type="submit" value="Login">
+            <br><br>
+            <a href="register.html">Register for a new account?</a>
+        </form>
+        <?php
+        if (isset($_GET['uname'])) {
+            $uname = $_GET['uname'];
+            $color = $_GET['color'];
+            if (!empty($uname)) {
+                echo '<p class="' . $color . '">You have logged in as: ' . $uname . '</p>';
+            }
+        }
+        ?>
+    </div>
+</body>
+</html>
